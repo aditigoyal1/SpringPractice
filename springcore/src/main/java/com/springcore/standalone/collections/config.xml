@@ -3,37 +3,50 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context.xsd">
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd">
+    
+   <!--  standalone list -->
+   
+   <util:list  list-class="java.util.LinkedList" id="bestfriends">
+   <value>Parikha</value>
+   <value>Vidhi</value>
+   <value>Alisha</value>
+   <value>Mahima</value>
+   
+   </util:list>
+   
+   <util:map map-class="java.util.HashMap" id="fees">
+      <entry key="Spring" value="8000"></entry>
+      <entry key="Java" value="5000"></entry>
+      <entry key="Python" value="3000"></entry>
+   </util:map>
+   
+  <!--  standalone properties -->
+  
+  <util:properties id="dbconfig">
+  <prop key="driver">com.mysql.jdbc.Driver</prop>
+  <prop key="username">Aditi</prop>
+  <prop key="password">abc</prop>
+  
+  </util:properties>
     
     
-    <bean class="com.springcore.Address" name="A1">
-    <property name="city" value="Jaipur"></property>
-    <property name="street" value="VDN"></property>
+    <bean class="com.springcore.standalone.collections.Person" name="person1">
+    <property name="friends" ref="bestfriends"></property>
+    <property name="feestructure" ref="fees"></property>
+    <property name="properties" ref="dbconfig"></property>
+    
+    <!-- <property name="friends">
+       <ref bean="bestfriends"/>
+    </property> -->
+    
     </bean>
-    
-    
-    <bean class="com.springcore.Student" name="student1">
-   <!-- setter injection --> 
-	    
-      <property name="studentId">
-	    	<value>12345</value>
-	    </property>
-	    <!-- Setting using value  -->
-	    <property name="studentName" value="Aditi Agrwal"/>
-	    
-	    <property name="Address" >
-	    <ref bean="A1"></ref>
-	    </property>    	 
-
-	    <property name="studentAddress">
-	   	<value>Jaipur</value>
-	    </property>
-    </bean> 
-    
-    <!--  <bean class="com.springcore.Student" name="student2" p:studentId="2345" p:studentAddress="Delhi" p:studentName="Parikha Sharma"/> -->
    
      
  </beans>   
