@@ -1,5 +1,7 @@
 package com.springcore.stereotype;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -9,10 +11,24 @@ public class Student {
 	private String studentname;
 	@Value("Jaipur")
 	private String city;
+	
+	
+	@Value("#{temp}")
+	private List<String> address;
+	
+	
+	
+	public List<String> getAddress() {
+		return address;
+	}
+//	public void setAddress(List<String> address) {
+//		this.address = address;
+//	}
 	public String getStudentname() {
 		return studentname;
 	}
 	public void setStudentname(String studentname) {
+		System.out.println("Setting name");
 		this.studentname = studentname;
 	}
 	public String getCity() {
@@ -23,7 +39,7 @@ public class Student {
 	}
 	@Override
 	public String toString() {
-		return "Student [studentname=" + studentname + ", city=" + city + "]";
+		return "Student [studentname=" + studentname + ", city=" + city + ", address=" + address + "]";
 	}
 	
 

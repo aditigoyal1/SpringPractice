@@ -9,6 +9,7 @@ public class Person {
 	private List<String> friends;
     private Map<String,Integer> feestructure;
     private Properties properties;
+    
 	public Properties getProperties() {
 		return properties;
 	}
