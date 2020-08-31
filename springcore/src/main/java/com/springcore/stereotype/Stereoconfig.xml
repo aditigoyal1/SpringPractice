@@ -20,6 +20,12 @@
     <value>Rajasthan</value>
     </util:list>
     
+    <bean class="com.springcore.stereotype.Employee" name="e1" scope="prototype">
+    <property name="name">
+    <value>Aditi Agarwal</value>
+    </property>
+    </bean>
+    
    
      
  </beans>   
